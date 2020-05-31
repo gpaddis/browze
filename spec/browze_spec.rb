@@ -8,12 +8,16 @@ RSpec.describe Browze do
   end
 
   describe '.start' do
-    it 'instantiates a desktop client by default' do
-      expect(browser).to be_a Browze::Client::Desktop
-    end
-
     it 'can instantiate a mobile client' do
       expect(described_class.start(:mobile)).to be_a Browze::Client::Mobile
+    end
+
+    it 'can instantiate a desktop client' do
+      expect(described_class.start(:desktop)).to be_a Browze::Client::Desktop
+    end
+
+    it 'instantiates a desktop client by default' do
+      expect(browser).to be_a Browze::Client::Desktop
     end
   end
 end
