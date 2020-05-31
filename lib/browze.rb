@@ -1,6 +1,5 @@
-require "browze/version"
+# frozen_string_literal: true
 
-module Browze
-  class Error < StandardError; end
-  # Your code goes here...
+class Browze
+  VERSION = '0.1.0'
 end
