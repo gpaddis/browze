@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/browze'
+require_relative 'lib/browze/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'browze'
