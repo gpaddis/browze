@@ -1,15 +1,25 @@
 # frozen_string_literal: true
 
 require 'down'
+require 'httparty'
 require 'fileutils'
 
 module Browze
   # Desktop and mobile clients inherit from the base client.
   class Client
+    include HTTParty
+
+    attr_reader :cookies
+
+    def initialize
+      @cookies = CookieHash.new
+    end
+
     # Perform a GET request to the given url.
     def get(url)
-      response = HTTParty.get(url, headers: { 'User-Agent' => user_agent })
-      Browze::Client::Response.new(response)
+      resp = Browze::Client::Response.new(self.class.get(url, headers: { 'User-Agent' => user_agent }))
+      resp.set_cookie.each { |c| @cookies.add_cookies(c) }
+      resp
     end
 
     # TODO: show download progress

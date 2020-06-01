@@ -17,9 +17,10 @@ RSpec.shared_examples 'client' do
   end
 
   describe '#get' do
+    let(:browser) { described_class.new }
     let(:response) do
       VCR.use_cassette('get:google.com') do
-        described_class.new.get('https://www.google.com/')
+        browser.get('https://www.google.com/')
       end
     end
 
@@ -31,6 +32,14 @@ RSpec.shared_examples 'client' do
 
     it 'automatically parses the HTML response with Nokogiri' do
       expect(response.parsed).to be_a Nokogiri::HTML::Document
+    end
+
+    it 'saves the cookies received with the response' do
+      expect(response.set_cookie).to be_an Array
+      expect(browser.cookies).to include(domain: '.google.com')
+    end
+
+    skip 'sends the cookies received in the previous response' do
     end
   end
 end

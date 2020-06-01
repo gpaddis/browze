@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'httparty'
 require 'browze/version'
 require 'browze/client'
 require 'browze/client/mobile'
