@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'down'
 require 'nokogiri'
+require 'fileutils'
 
 module Browze
   # Desktop and mobile clients inherit from the base client.
@@ -13,6 +15,18 @@ module Browze
         body: response.body,
         parsed: Nokogiri::HTML(response.body)
       )
+    end
+
+    # TODO: show download progress
+    def download(url, filename: nil)
+      puts 'Downloading...'
+      tempfile = Down.download(url,
+                               content_length_proc: ->(c) { puts c },
+                               progress_proc: ->(p) { puts p })
+      filename ||= tempfile.original_filename
+      FileUtils.mv(tempfile, filename)
+      puts filename
+      puts 'Download complete!'
     end
 
     # Choose a random user agent.

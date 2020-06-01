@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     browze (0.1.0)
+      down
       httparty
       nokogiri
 
@@ -14,6 +15,8 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.3)
+    down (5.1.0)
+      addressable (~> 2.5)
     ffi (1.12.2)
     formatador (0.2.5)
     guard (2.16.2)
