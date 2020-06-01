@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'down'
-require 'nokogiri'
 require 'fileutils'
 
 module Browze
@@ -10,11 +9,7 @@ module Browze
     # Perform a GET request to the given url.
     def get(url)
       response = HTTParty.get(url, headers: { 'User-Agent' => user_agent })
-      Browze::Client::Response.new(
-        code: response.code,
-        body: response.body,
-        parsed: Nokogiri::HTML(response.body)
-      )
+      Browze::Client::Response.new(response)
     end
 
     # TODO: show download progress
