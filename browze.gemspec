@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'httparty'
+  spec.add_dependency 'nokogiri'
 
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'

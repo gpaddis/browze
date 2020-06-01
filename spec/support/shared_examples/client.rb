@@ -17,11 +17,20 @@ RSpec.shared_examples 'client' do
   end
 
   describe '#get' do
-    it 'gets the content from a url' do
+    let(:response) do
       VCR.use_cassette('get:google.com') do
-        response = described_class.new.get('https://www.google.com/')
-        expect(response.code).to eq 200
+        described_class.new.get('https://www.google.com/')
       end
+    end
+
+    it 'gets the content from a url' do
+      expect(response).to be_a Browze::Client::Response
+      expect(response.body).to be_a String
+      expect(response.code).to eq 200
+    end
+
+    it 'automatically parses the HTML response with Nokogiri' do
+      expect(response.parsed).to be_a Nokogiri::HTML::Document
     end
   end
 end

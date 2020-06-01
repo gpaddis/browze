@@ -5,6 +5,7 @@ require 'browze/version'
 require 'browze/client'
 require 'browze/client/mobile'
 require 'browze/client/desktop'
+require 'browze/client/response'
 
 module Browze
   def self.start(type = :desktop)
