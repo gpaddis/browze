@@ -21,7 +21,7 @@ module Browze
 
     # Get the cookies in the set-cookie header field.
     def set_cookie
-      original.get_fields('Set-Cookie')
+      original.get_fields('Set-Cookie') || []
     end
   end
 end
