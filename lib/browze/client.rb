@@ -11,13 +11,14 @@ module Browze
 
     attr_reader :cookies
 
+    # Initialize the cookie jar.
     def initialize
       @cookies = CookieHash.new
     end
 
     # Perform a GET request to the given url.
     def get(url)
-      resp = Browze::Client::Response.new(self.class.get(url, headers: { 'User-Agent' => user_agent }))
+      resp = Browze::Client::Response.new(self.class.get(url, headers: headers))
       resp.set_cookie.each { |c| @cookies.add_cookies(c) }
       resp
     end
@@ -34,7 +35,12 @@ module Browze
       puts 'Download complete!'
     end
 
-    # Choose a random user agent.
+    # Get the updated headers.
+    def headers
+      { 'User-Agent' => user_agent, 'Cookie' => @cookies.to_cookie_string }
+    end
+
+    # Pick a random user agent and persist it in the instance.
     def user_agent
       @user_agent ||= self.class::USER_AGENTS[rand(self.class::USER_AGENTS.length)]
     end

@@ -38,8 +38,5 @@ RSpec.shared_examples 'client' do
       expect(response.set_cookie).to be_an Array
       expect(browser.cookies).to include(domain: '.google.com')
     end
-
-    skip 'sends the cookies received in the previous response' do
-    end
   end
 end
