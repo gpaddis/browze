@@ -23,6 +23,13 @@ module Browze
       resp
     end
 
+    # Perform a POST request to the given url with a request body.
+    def post(url, body_hash)
+      resp = Browze::Client::Response.new(self.class.post(url, body: body_hash, headers: headers))
+      resp.set_cookie.each { |c| @cookies.add_cookies(c) }
+      resp
+    end
+
     # TODO: show download progress
     def download(url, filename: nil)
       puts 'Downloading...'
