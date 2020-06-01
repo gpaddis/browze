@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Browze
+  # Wrap the HTTParty response to assign custom attributes.
   class Client::Response
     attr_reader :code, :body, :parsed
 
@@ -9,5 +10,5 @@ module Browze
       @body = body
       @parsed = parsed
     end
-    end
+  end
 end
