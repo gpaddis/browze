@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'down'
+require 'geocoder'
 require 'httparty'
 require 'fileutils'
 
@@ -50,6 +51,17 @@ module Browze
     # Pick a random user agent and persist it in the instance.
     def user_agent
       @user_agent ||= self.class::USER_AGENTS[rand(self.class::USER_AGENTS.length)]
+    end
+
+    # Get the current public ip address.
+    def ip
+      @ip ||= get('http://whatismyip.akamai.com').body
+    end
+
+    # Return the current location based on the public ip address.
+    def location
+      l = Geocoder.search(ip).first
+      "#{l.city}, #{l.country}"
     end
   end
 end
