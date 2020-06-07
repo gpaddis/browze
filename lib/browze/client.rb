@@ -11,10 +11,12 @@ module Browze
     include HTTParty
 
     attr_reader :cookies
+    attr_writer :headers
 
     # Initialize the cookie jar.
     def initialize
       @cookies = CookieHash.new
+      @headers = Hash.new
     end
 
     # Perform a GET request to the given url.
@@ -45,7 +47,7 @@ module Browze
 
     # Get the updated headers.
     def headers
-      { 'User-Agent' => user_agent, 'Cookie' => @cookies.to_cookie_string }
+      @headers.merge({ 'User-Agent' => user_agent, 'Cookie' => @cookies.to_cookie_string })
     end
 
     # Pick a random user agent and persist it in the instance.

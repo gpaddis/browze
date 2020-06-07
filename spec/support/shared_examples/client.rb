@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples 'client' do
+  let(:browser) { described_class.new }
+
   it 'has a user agent' do
     expect(described_class.new.user_agent).to be_a String
   end
@@ -11,13 +13,11 @@ RSpec.shared_examples 'client' do
     end
 
     it 'persists the user agent in the instance' do
-      browser = described_class.new
       expect(browser.user_agent).to eq browser.user_agent
     end
   end
 
   describe '#get' do
-    let(:browser) { described_class.new }
     let(:response) do
       VCR.use_cassette('get:google.com') do
         browser.get('https://www.google.com/')
@@ -37,6 +37,14 @@ RSpec.shared_examples 'client' do
     it 'saves the cookies received with the response' do
       expect(response.set_cookie).to be_an Array
       expect(browser.cookies).to include(domain: '.google.com')
+    end
+  end
+
+  describe 'headers' do
+    it 'can add custom headers to the browser' do
+      browser.headers = {foo: 'bar'}
+      expect(browser.headers).to include(foo: 'bar')
+      expect(browser.headers.count).to eq 3
     end
   end
 end
