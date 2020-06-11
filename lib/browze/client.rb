@@ -14,7 +14,7 @@ module Browze
     attr_reader :cookies
     attr_writer :headers
 
-    # Initialize the cookie jar.
+    # Initialize the cookie jar and headers.
     def initialize
       @cookies = CookieHash.new
       @headers = {}

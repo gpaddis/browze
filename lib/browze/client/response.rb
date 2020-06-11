@@ -9,6 +9,9 @@ module Browze
                 :code,
                 :original
 
+    # Initialize the Response object with the original response data.
+    #
+    # @param [HTTParty::Response] response
     def initialize(response)
       @body = response.body
       @code = response.code
@@ -20,6 +23,8 @@ module Browze
     end
 
     # Get the cookies in the set-cookie header field.
+    #
+    # @return [Array] the cookies to be set in the client headers.
     def set_cookie
       original.get_fields('Set-Cookie') || []
     end

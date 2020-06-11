@@ -2,7 +2,7 @@
 
 module Browze
   class Client::Desktop < Browze::Client
-    # Most used desktop user agents.
+    # @return [Array] Most used desktop user agents.
     USER_AGENTS = [
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36',
