@@ -6,6 +6,7 @@ PATH
       geocoder
       httparty
       nokogiri
+      tty-progressbar
 
 GEM
   remote: https://rubygems.org/
@@ -36,7 +37,7 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hashdiff (1.0.1)
-    httparty (0.18.0)
+    httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     listen (3.2.1)
@@ -78,7 +79,16 @@ GEM
     rspec-support (3.9.3)
     safe_yaml (1.0.5)
     shellany (0.0.1)
+    strings-ansi (0.1.0)
     thor (1.0.1)
+    tty-cursor (0.7.1)
+    tty-progressbar (0.17.0)
+      strings-ansi (~> 0.1.0)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.7)
+      unicode-display_width (~> 1.6)
+    tty-screen (0.8.0)
+    unicode-display_width (1.7.0)
     vcr (6.0.0)
     webmock (3.8.3)
       addressable (>= 2.3.6)

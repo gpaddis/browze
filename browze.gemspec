@@ -20,10 +20,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'down'      # https://github.com/janko/down
-  spec.add_dependency 'geocoder'  # https://github.com/alexreisner/geocoder
+  spec.add_dependency 'down'            # https://github.com/janko/down
+  spec.add_dependency 'geocoder'        # https://github.com/alexreisner/geocoder
   spec.add_dependency 'httparty'
   spec.add_dependency 'nokogiri'
+  spec.add_dependency 'tty-progressbar' # https://github.com/piotrmurach/tty-progressbar
 
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'
