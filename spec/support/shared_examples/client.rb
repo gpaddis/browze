@@ -42,7 +42,7 @@ RSpec.shared_examples 'client' do
 
   describe 'headers' do
     it 'can add custom headers to the browser' do
-      browser.headers = {foo: 'bar'}
+      browser.headers = { foo: 'bar' }
       expect(browser.headers).to include(foo: 'bar')
       expect(browser.headers.count).to eq 3
     end

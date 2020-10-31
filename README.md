@@ -1,8 +1,6 @@
 # Browze
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/browze`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A scraping-oriented browser-like wrapper around HTTParty.
 
 ## Installation
 
@@ -20,16 +18,47 @@ Or install it yourself as:
 
     $ gem install browze
 
-## Usage
+## Usage Examples
 
-TODO: Write usage instructions here
+```ruby
+# Instantiate the browser
+browser = Browze.start
+
+# A random user agent is set automatically
+# e.g.: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"
+browser.user_agent
+
+# Set any custom headers
+browser.headers = { foo: 'bar' }
+
+# Perform a GET request
+response = browser.get('https://www.google.com/')
+
+# Return the parsed response body as a Nokogiri::HTML::Document
+response.parsed
+
+# Perform a POST request
+browser.post(
+  'https://www.example.com/url.php',
+  param1: 'example',
+  param2: 'example',
+)
+
+# Download a file and show a progress bar
+browser.download('https://www.example.com/robots.txt')
+
+# Show the current IP and geolocation
+browser.ip       # => 75.152.126.127
+browser.location # => Grande Prairie, Canada
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests or `bundle exec guard --clear` to keep them running during the development.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## License
 
