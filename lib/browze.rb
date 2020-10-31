@@ -7,6 +7,10 @@ require 'browze/client/desktop'
 require 'browze/client/response'
 
 module Browze
+  # Create a new Browze instance.
+  #
+  # @param [Symbol] type
+  # @return [Browze::Client]
   def self.start(type = :desktop)
     type == :mobile ? Browze::Client::Mobile.new : Browze::Client::Desktop.new
   end

@@ -18,11 +18,11 @@ RSpec.shared_examples 'client' do
   end
 
   describe '#get' do
-    let(:response) do
-      VCR.use_cassette('get:google.com') do
-        browser.get('https://www.google.com/')
-      end
+    around(:each) do |example|
+      VCR.use_cassette('get:google.com', &example)
     end
+
+    let(:response) { browser.get('https://www.google.com/') }
 
     it 'gets the content from a url' do
       expect(response).to be_a Browze::Client::Response
