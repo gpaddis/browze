@@ -22,8 +22,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'down'            # https://github.com/janko/down
   spec.add_dependency 'geocoder'        # https://github.com/alexreisner/geocoder
-  spec.add_dependency 'httparty'
-  spec.add_dependency 'nokogiri'
+  spec.add_dependency 'httparty'        # https://github.com/jnunemaker/httparty
+  spec.add_dependency 'nokogiri'        # https://github.com/sparklemotion/nokogiri
   spec.add_dependency 'tty-progressbar' # https://github.com/piotrmurach/tty-progressbar
 
   spec.add_development_dependency 'vcr'

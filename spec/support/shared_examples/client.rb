@@ -9,6 +9,7 @@ RSpec.shared_examples 'client' do
 
   describe '#user_agent' do
     it 'returns a random different user agent with different instances' do
+      # TODO: fix this flaky test.
       expect(browser.user_agent).not_to eq described_class.new.user_agent
     end
 

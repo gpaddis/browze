@@ -41,7 +41,7 @@ response.parsed
 browser.post(
   'https://www.example.com/url.php',
   param1: 'example',
-  param2: 'example',
+  param2: 'example'
 )
 
 # Download a file and show a progress bar
