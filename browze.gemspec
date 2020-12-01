@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = Browze::VERSION
   spec.authors       = ['Gianpiero Addis']
 
-  spec.summary       = 'A wrapper arount HTTParty to quick start scraping tasks.'
+  spec.summary       = 'A wrapper around HTTParty to quick start scraping tasks.'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
