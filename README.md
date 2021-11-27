@@ -1,6 +1,6 @@
 # Browze
 
-A scraping-oriented browser-like wrapper around HTTParty.
+A scraping-oriented browser-like wrapper around HTTParty for your cli tools.
 
 ## Installation
 
