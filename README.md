@@ -24,6 +24,10 @@ Or install it yourself as:
 # Instantiate the browser
 browser = Browze.start
 
+# By default the browser is instantiated with a desktop user agent. if you want
+# to use a mobile user agent instead, start it with :mobile.
+mobile_browser = Browze.start(:mobile)
+
 # A random user agent is set automatically
 # e.g.: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"
 browser.user_agent
@@ -54,7 +58,7 @@ browser.location # => Grande Prairie, Canada
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests or `bundle exec guard --clear` to keep them running during the development.
+After checking out the repo, run `bundle install` to install dependencies. Then, run `bundle exec rspec` to run the specs or `bundle exec guard --clear` to keep them running during the development.
 
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
