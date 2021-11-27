@@ -4,7 +4,7 @@ require 'browze/version'
 require 'browze/client'
 require 'browze/client/mobile'
 require 'browze/client/desktop'
-require 'browze/client/response'
+require 'browze/response'
 
 module Browze
   # Create a new Browze instance.

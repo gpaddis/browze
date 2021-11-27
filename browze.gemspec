@@ -26,6 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'nokogiri'        # https://github.com/sparklemotion/nokogiri
   spec.add_dependency 'tty-progressbar' # https://github.com/piotrmurach/tty-progressbar
 
+
+  spec.add_development_dependency 'rspec-retry'
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'
 end

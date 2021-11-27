@@ -8,8 +8,7 @@ RSpec.shared_examples 'client' do
   end
 
   describe '#user_agent' do
-    it 'returns a random different user agent with different instances' do
-      # TODO: fix this flaky test.
+    it 'returns a random different user agent with different instances', retry: 3 do
       expect(browser.user_agent).not_to eq described_class.new.user_agent
     end
 
@@ -26,7 +25,7 @@ RSpec.shared_examples 'client' do
     let(:response) { browser.get('https://www.google.com/') }
 
     it 'gets the content from a url' do
-      expect(response).to be_a Browze::Client::Response
+      expect(response).to be_a Browze::Response
       expect(response.body).to be_a String
       expect(response.code).to eq 200
     end

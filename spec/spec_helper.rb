@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require 'browze'
+require 'rspec/retry'
 require 'vcr'
 
 RSpec.configure do |config|
@@ -14,6 +15,15 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  #
+  # rspec-retry: https://github.com/NoRedInk/rspec-retry
+  #
+
+  # show retry status in spec process
+  config.verbose_retry = true
+  # show exception that triggers a retry if verbose_retry is set to true
+  config.display_try_failure_messages = true
 end
 
 VCR.configure do |config|

@@ -4,7 +4,7 @@ require 'nokogiri'
 
 module Browze
   # Wrap the HTTParty response to assign custom attributes.
-  class Client::Response
+  class Response
     attr_reader :body,
                 :code,
                 :original

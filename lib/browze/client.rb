@@ -23,9 +23,9 @@ module Browze
     # Perform a GET request to the given url.
     #
     # @param [String] url
-    # @return [Browze::Client::Response]
+    # @return [Browze::Response]
     def get(url)
-      resp = Browze::Client::Response.new(self.class.get(url, headers: headers))
+      resp = Browze::Response.new(self.class.get(url, headers: headers))
       resp.set_cookie.each { |c| @cookies.add_cookies(c) }
       resp
     end
@@ -34,9 +34,9 @@ module Browze
     #
     # @param [String] url
     # @param [Hash] body_hash
-    # @return [Browze::Client::Response]
+    # @return [Browze::Response]
     def post(url, body_hash)
-      resp = Browze::Client::Response.new(self.class.post(url, body: body_hash, headers: headers))
+      resp = Browze::Response.new(self.class.post(url, body: body_hash, headers: headers))
       resp.set_cookie.each { |c| @cookies.add_cookies(c) }
       resp
     end
