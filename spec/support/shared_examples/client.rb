@@ -12,7 +12,7 @@ RSpec.shared_examples 'client' do
       expect(browser.user_agent).not_to eq described_class.new.user_agent
     end
 
-    it 'persists the user agent in the instance' do
+    it 'keeps using the same user_agent once instantiated' do
       expect(browser.user_agent).to eq browser.user_agent
     end
   end

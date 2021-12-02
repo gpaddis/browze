@@ -68,7 +68,7 @@ module Browze
     #
     # @return [String]
     def user_agent
-      @user_agent ||= self.class::USER_AGENTS[rand(self.class::USER_AGENTS.length)]
+      @user_agent ||= self.class::USER_AGENTS.sample
     end
 
     # Get the current public ip address.

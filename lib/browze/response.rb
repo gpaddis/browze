@@ -18,6 +18,9 @@ module Browze
       @original = response
     end
 
+    # Returns the response parsed with nokogiri.
+    #
+    # @return [Nokogiri::HTML4::Document]
     def parsed
       Nokogiri::HTML(body)
     end
